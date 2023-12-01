@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>TODO App</h2>
+    <input type="text" id="todoInput" placeholder="Enter your TODO">
+    <button onclick="addTodo()">Add TODO</button>
+
+    <ul id="todoList"></ul>
+
+    <script>
+        function addTodo() {
+            const todoInput = document.getElementById("todoInput");
+            const todoList = document.getElementById("todoList");
+
+            if (todoInput.value.trim() !== "") {
+                const newTodo = document.createElement("li");
+                newTodo.textContent = todoInput.value;
+                newTodo.onclick = toggleTodo;
+
+                todoList.appendChild(newTodo);
+
+                // Clear input field
+                todoInput.value = "";
+            }
+        }
+
+        function toggleTodo() {
+            this.classList.toggle("completed");
+        }
+    </script>
+
+</body>
+</html>

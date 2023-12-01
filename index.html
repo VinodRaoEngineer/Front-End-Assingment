@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Text</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="heading">The most affordable learning platform</h1>
+    <button onclick="toggleText()">Toggle Text</button>
+
+    <script>
+        function toggleText() {
+            const headingElement = document.getElementById("heading");
+            const currentText = headingElement.textContent;
+
+            if (currentText === "The most affordable learning platform") {
+                headingElement.textContent = "PW Skills";
+            } else {
+                headingElement.textContent = "The most affordable learning platform";
+            }
+        }
+    </script>
+
+</body>
+</html>

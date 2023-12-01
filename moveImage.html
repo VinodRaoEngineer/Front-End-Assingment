@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move Image with Arrow Keys</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #movingImage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 0.2s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+    <img id="movingImage" src="https://via.placeholder.com/100" alt="Moving Image">
+
+    <script>
+        const movingImage = document.getElementById("movingImage");
+
+        // Initial position
+        let positionX = 50;
+        let positionY = 50;
+
+        document.addEventListener("keydown", handleKeyPress);
+
+        function handleKeyPress(event) {
+            const step = 10; // Adjust the step size as needed
+
+            switch (event.key) {
+                case "ArrowUp":
+                    positionY -= step;
+                    break;
+                case "ArrowDown":
+                    positionY += step;
+                    break;
+                case "ArrowLeft":
+                    positionX -= step;
+                    break;
+                case "ArrowRight":
+                    positionX += step;
+                    break;
+                default:
+                    return; // Ignore other keys
+            }
+
+            // Update the image position
+            movingImage.style.transform = `translate(${positionX}%, ${positionY}%)`;
+        }
+    </script>
+
+</body>
+</html>
